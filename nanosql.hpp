@@ -21,8 +21,8 @@ class Sql
 		bool is_tran() const;
 		int exec(const std::string& query, CallbackFunc cb=NULL);
 		int get_table(const std::string& query);
-		inline char* result(long row, long col);
-		inline char* colName(long col);
+		inline char* result(long row, long col) const;
+		inline char* colName(long col) const;
 		int begin_tran();
 		int end_tran();
 
@@ -32,12 +32,12 @@ class Sql
 };
 
 
-inline char* Sql::result(long row, long col)
+inline char* Sql::result(long row, long col) const
 {
 	return (raw_result.arr[ row*raw_result.col + col -1 ]);
 }
 
-inline char* Sql::colName(long col)
+inline char* Sql::colName(long col) const
 {
 	return raw_result.arr[col-1];
 }

@@ -3,7 +3,7 @@ CXX = g++
 CXXFLAGS = -g -march=native -pipe  -pthread
 
 example: example.o  nanosql.o nanosql.hpp
-	$(CXX) example.o nanosql.o $(LIBS) $(CXXFLAGS) -o test
+	$(CXX) $^ $(LIBS) $(CXXFLAGS) -o $@
 
 clean:
 	rm *.o
